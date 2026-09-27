@@ -1,0 +1,54 @@
+name: Bug report
+description: Something in Arcadia Lectern does not work as described
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: frontmatter
+    attributes:
+      label: Example note frontmatter
+      description: The frontmatter of a note that reproduces the problem, with anything private removed.
+      render: yaml
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Arcadia Lectern version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: obsidian-version
+    attributes:
+      label: Obsidian version
+      placeholder: "1.7.2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+    validations:
+      required: true
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: Any errors from the developer console (Ctrl+Shift+I, or Cmd+Option+I on macOS).
+      render: text

@@ -1,0 +1,10 @@
+{
+	"id": "arcadia-lectern",
+	"name": "Arcadia Lectern",
+	"version": "0.1.0",
+	"minAppVersion": "1.7.2",
+	"description": "Sermon and teaching preparation: series planning, a preaching calendar, and a passage index over your vault notes.",
+	"author": "Peter J. Carter",
+	"authorUrl": "https://theologyinfocus.org",
+	"isDesktopOnly": false
+}

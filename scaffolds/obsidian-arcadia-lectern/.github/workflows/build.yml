@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: npm
+
+      # npm ci, so the committed lockfile decides versions. This matters here:
+      # `obsidian: latest` in package.json resolves to newer API typings over
+      # time, and typings newer than 1.12.x do not typecheck under the pinned
+      # TypeScript 4.7.4 without skipLibCheck.
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Typecheck and bundle
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test

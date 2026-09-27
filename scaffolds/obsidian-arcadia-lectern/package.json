@@ -1,0 +1,32 @@
+{
+  "name": "arcadia-lectern",
+  "version": "0.1.0",
+  "description": "Sermon and teaching preparation for Obsidian: series planning, preaching calendar, and passage index.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit && node esbuild.config.mjs production",
+    "lint": "eslint src tests --ext .ts",
+    "test": "esbuild tests/passages.test.ts --bundle --platform=node --format=esm --alias:obsidian=./tests/obsidian-stub.mjs --outfile=tests/.build/passages.mjs --log-level=error && node tests/.build/passages.mjs",
+    "version": "node version-bump.mjs && git add manifest.json versions.json"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "sermon",
+    "preaching",
+    "lectionary"
+  ],
+  "author": "Peter J. Carter",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "5.29.0",
+    "@typescript-eslint/parser": "5.29.0",
+    "esbuild": "0.17.3",
+    "eslint": "^8.57.0",
+    "obsidian": "latest",
+    "tslib": "2.4.0",
+    "typescript": "4.7.4"
+  }
+}

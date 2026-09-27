@@ -1,0 +1,185 @@
+/* ============================================================
+   Arcadia Lectern - Styles
+   Every rule is scoped under .arcadia-lectern-* so nothing here
+   can affect the rest of the vault. All colors resolve from
+   Obsidian's own CSS variables, so themes and Style Settings
+   continue to control the palette.
+
+   Tunable values live as custom properties on the root container
+   below; override them in a snippet rather than editing rules.
+   ============================================================ */
+
+.arcadia-lectern-root {
+	/* ---- Tunables ---- */
+	--lectern-gutter: 12px;          /* horizontal padding for panes */
+	--lectern-row-gap: 6px;          /* vertical gap between list rows */
+	--lectern-date-width: 5.5em;     /* fixed column for dates, keeps titles aligned */
+	--lectern-meta-size: var(--font-smaller);
+
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* ---- Toolbar and pane tabs ---- */
+
+.arcadia-lectern-toolbar {
+	display: flex;
+	align-items: center;
+	padding: 6px var(--lectern-gutter);
+	border-bottom: 1px solid var(--background-modifier-border);
+	background: var(--background-secondary);
+	flex-shrink: 0;
+}
+
+.arcadia-lectern-tabs {
+	display: flex;
+	gap: 4px;
+}
+
+.arcadia-lectern-tab {
+	padding: 4px 10px;
+	border: none;
+	border-radius: var(--radius-s);
+	background: transparent;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	cursor: pointer;
+}
+
+.arcadia-lectern-tab:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.arcadia-lectern-tab.is-active {
+	background: var(--background-modifier-active-hover);
+	color: var(--text-accent);
+	font-weight: var(--font-semibold);
+}
+
+/* ---- Scrolling body ---- */
+
+.arcadia-lectern-body {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	padding: var(--lectern-gutter);
+}
+
+/* ---- Calendar month header ---- */
+
+.arcadia-lectern-month-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.arcadia-lectern-month-label {
+	font-weight: var(--font-semibold);
+	color: var(--text-normal);
+}
+
+.arcadia-lectern-nav {
+	display: flex;
+	align-items: center;
+	padding: 2px 4px;
+	border: none;
+	border-radius: var(--radius-s);
+	background: transparent;
+	color: var(--text-muted);
+	cursor: pointer;
+}
+
+.arcadia-lectern-nav:hover {
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+/* ---- Sections (series pane) ---- */
+
+.arcadia-lectern-section + .arcadia-lectern-section {
+	margin-top: 16px;
+}
+
+.arcadia-lectern-section-title {
+	margin: 0 0 4px;
+	color: var(--text-accent);
+	font-size: var(--font-ui-small);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* ---- Lists ---- */
+
+.arcadia-lectern-list,
+.arcadia-lectern-sublist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.arcadia-lectern-sublist {
+	margin: 2px 0 0 var(--lectern-date-width);
+}
+
+.arcadia-lectern-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: var(--lectern-row-gap);
+	padding: 3px 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.arcadia-lectern-item:last-child {
+	border-bottom: none;
+}
+
+.arcadia-lectern-item-date {
+	flex: 0 0 var(--lectern-date-width);
+	color: var(--text-faint);
+	font-size: var(--lectern-meta-size);
+	font-variant-numeric: tabular-nums;
+}
+
+.arcadia-lectern-item-ref {
+	font-weight: var(--font-semibold);
+	color: var(--text-normal);
+}
+
+.arcadia-lectern-item-title {
+	color: var(--text-normal);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.arcadia-lectern-item-title:hover {
+	color: var(--text-accent-hover);
+	text-decoration: underline;
+}
+
+.arcadia-lectern-item-meta {
+	color: var(--text-muted);
+	font-size: var(--lectern-meta-size);
+}
+
+/* ---- Empty states ---- */
+
+.arcadia-lectern-empty {
+	padding: 24px var(--lectern-gutter);
+	text-align: center;
+}
+
+.arcadia-lectern-empty-title {
+	margin: 0 0 4px;
+	color: var(--text-normal);
+	font-weight: var(--font-semibold);
+}
+
+.arcadia-lectern-empty-detail {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: var(--lectern-meta-size);
+}

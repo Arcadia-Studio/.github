@@ -1,0 +1,7 @@
+node_modules/
+*.js.map
+.env
+.env.*
+obsidian-releases
+data.json
+tests/.build/

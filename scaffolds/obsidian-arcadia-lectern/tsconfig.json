@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"inlineSourceMap": true,
+		"inlineSources": true,
+		"module": "ESNext",
+		"target": "ES2018",
+		"allowJs": true,
+		"strict": true,
+		// Required: the Obsidian API typings do not typecheck under TS 4.7.4.
+		"skipLibCheck": true,
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"isolatedModules": true,
+		"lib": [
+			"DOM",
+			"ES2018",
+			"ES2019",
+			"ES2020"
+		]
+	},
+	"include": [
+		"src/**/*.ts",
+		"tests/**/*.ts"
+	]
+}
